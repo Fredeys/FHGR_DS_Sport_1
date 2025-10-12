@@ -9,3 +9,4 @@ Ziel des Projekts ist es, zu untersuchen, **ob und in welchem Ausmaß Trainingse
 Dazu werden Trainingsdaten, Aktivitätsdaten und kontinuierliche Herzfrequenzaufzeichnungen kombiniert und analysiert.
 
 ![pexels-maksgelatin-4775192](https://github.com/user-attachments/assets/8fa349dc-9aee-4a1c-b809-e8538b3213a9)
+Picture taken by Maksim Goncharenok
