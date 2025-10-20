@@ -27,16 +27,46 @@
 %-------------------------
 % title
 %-------------------------
-\input{title}
+\input{title.tex} 
 
+\clearpage
+
+% section: mit Nummer
+%section*: ohne Nummer
 \section{Einleitung}
-\citeauthor{Student2022} führt aus Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua \cite{Student2022}. 
+\label{Kap1}
+Die Herzfrequenz bzw. der Puls ist die Anzahl Schläge pro Minute, dieser ist im Normalbereich bei 40-100 Schläge/Minute. Die Herzfrequenz wird aufgeteilt in verschiedene KAtogerien, vom Ruhepuls bis zum max. Herzfrequnez. Die Herzfrequenz ist abhängig vom Fitnesslevel, wie auch vom Alter. Bei sportlich aktiven Menschen leistet das Herz eine besser Leistung, da es mehr Blut pumpen kann, daher sinkt die Frequenz im Ruhezuestand. Stress, wie ein sehr anstrengends Training, kann Einfluss auf die SChlafqualität haben, welche möglicherweise über die Herzfrequenz sichtbar ist. 
+Die Herzfrequnez hat viele Einflüsse, in dieser Arbeit wird jedoch nur der Faktor Sport in den Fokus genommen und ob eine Verbesserung der Herzfrequenz gemessen werden konnte. 
+Die Daten wurden von einer weiblichen Person im Alter von 25-29 Jahren erhoben, mit einem moderaten Fitnesslevel. Dabei wurde der Datensatz von 2021 bis und mit 2025 beachtet. 
+
+
+
+\cite{Student2022}. 
+Siehe Kapitel~\ref{Kap1}.
 
 \section{Forschungsfragen und Methodik}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+\subsection{Forschungsfragen}
+Die Daten wurden mittels einer Polar Vantage V2 gesammelt, von 2021 bis und mit mitte 2025. Die Daten wurden direkt von der Polar Website angefordert und als Zip-Datei mit vielen JSON-Datein zugesendet. Die angeforderten Dateinen wurden mittels Phyton ausgelesen und bereinigt siehe ~\ref{Methodik} Methodik.
+Mittels den Daten wollten folgenden Fragen beantwortet werden:
+\begin{itemize}
+    \item Welche beobachtungen der Herzfrequenz über die Jahre wurde gemacht?
+    \item Wurde eine Veränderung des Ruhepulses, über die Nacht, beobachtet?
+    \item Kann einen Einfluss des Schlafes auf die Leistungsfähigkeit zurück geschlossen werden?
+    \item Kann mittels dem Ruhepuls auf die Trainingseinheit und die Erholung eine Schlussfolgerung gemacht werden?
+\end{itemize}
 
-\section{Resultate}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+
+%beispiel Kommentar
+\todo[backgroundcolor=red]{Diana}
+
+
+\subsection{Methodik} 
+\label{Methodik}
+Vor Datenextraktion wurde die Dateinamenstruktur der JSON-File analysiert, da sie die Informatioinen zur korrkten Aufteilung wie auch Zuordnung besitzen. Die Extraktion und Aufbereitung der Daten wurden zuerst gefiltert und danach wurde die Trennung wie auch die Klassifizierung vorgenommen, nach "Activity, Training und 247ohr". Die Daten wurden Zusammengefügt und überprüft, dabei wurden irrelevante Daten bereinigt. Extraktion von relevanten Daten, mit folgender Bereinung von Daten, oder auch umwandlung von verschachtelten Strukturen wurde erneut angewandt.
+Die Finalen gesäuberten Daten wurden als csv-Dateien gespeichert und für die anschliessende Analyse verwendet siehe Kapitel ~\ref{Resultate} Resultate.
+
+\section{Resultate}~\label{Resultate}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Siehe Tabelle~\ref{tab:lorem}
 
 \begin{table}[ht]
 \centering
@@ -49,15 +79,32 @@ consetetur sadipscing elitr & 99 \\
 \label{tab:lorem}
 \end{table}
 
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{ipsum.jpg}
+In Abbildung ~\ref{fig:av. heart per year} wurde die Durchschnittliche Herzfrequneze über die Jahre dargestellt, dabei ist ab 2021 eine Verbesserung der Herzfrequnez ersichtlich, da sie von 100 bpm auf 90 bpm sinkt. 2020 wurde vernachlässigt, da die Probanin die Uhr neu hatte und nicht regelässig trug.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Average heartfrequence per year.png}
+    \caption{Durchschnittliche Herzfrequenz/Jahr}
+    \label{fig:av. heart per year}
+\end{figure}
+
+Durch die Durchschnittliche Herzfrequnez gemessen über einen Tag, konnte klar festgestellt werden, dass über die Nacht Erholung eintrat, da der Plus von ca. 90-100 bpm auf 75-90 bpm sinkt, siehe Abbildung ~\ref{fig:daily heartfrequence}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Dailymuster of hertfrequence.png}
+    \caption{Tagesmuster der Herzfrequnez}
+    \label{fig:daily heartfrequence}
+\end{figure}
+
 %  \caption{Lorem ipsum}
 %  \label{fig:ipsum}
 %\end{figure}
 %Lorem ipsum dolor sit amet figure \ref{fig:ipsum}.
 
 \section{Diskussion}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+Die Herzfrequenz sank von Jahr zu Jahr in dem weiterhin Sport getätigt wurde. Ebenfalls wurde über die Nacht die Erholung gemessen und Tagsüber höhere varieriende Herzfrequnezen gemessen, welches auf Stress oder Sport hindeuten. 
 
 %-------------------------
 % literature
