@@ -35,68 +35,112 @@
 %section*: ohne Nummer
 \section{Einleitung}
 \label{Kap1}
-Die Herzfrequenz bzw. der Puls ist die Anzahl Schläge pro Minute, dieser ist im Normalbereich bei 40-100 Schläge/Minute. Die Herzfrequenz wird aufgeteilt in verschiedene KAtogerien, vom Ruhepuls bis zum max. Herzfrequnez. Die Herzfrequenz ist abhängig vom Fitnesslevel, wie auch vom Alter. Bei sportlich aktiven Menschen leistet das Herz eine besser Leistung, da es mehr Blut pumpen kann, daher sinkt die Frequenz im Ruhezuestand. Stress, wie ein sehr anstrengends Training, kann Einfluss auf die SChlafqualität haben, welche möglicherweise über die Herzfrequenz sichtbar ist. 
-Die Herzfrequnez hat viele Einflüsse, in dieser Arbeit wird jedoch nur der Faktor Sport in den Fokus genommen und ob eine Verbesserung der Herzfrequenz gemessen werden konnte. 
-Die Daten wurden von einer weiblichen Person im Alter von 25-29 Jahren erhoben, mit einem moderaten Fitnesslevel. Dabei wurde der Datensatz von 2021 bis und mit 2025 beachtet. 
+Die Herzfrequenz, also die Anzahl der Herzschläge pro Minute, liegt im Normalbereich typischerweise zwischen 40 und 100 Schlägen pro Minute. Sie wird vom Fitnesslevel, Alter und weiteren Faktoren wie Stress beeinflusst. Sportlich aktive Personen zeigen im Ruhezustand meist niedrigere Pulswerte, da das Herz effizienter arbeitet.  
 
+Mehrere Studien haben gezeigt, dass regelmässige sportliche Aktivität den Ruhepuls signifikant senken kann. Eine systematische Review und Meta‑Analyse von ~\cite{Reimers2018} fand heraus, dass Ausdauertraining, aber auch Yoga und andere Bewegungsformen, bei gesunden Personen zu einer messbaren Senkung des Ruhepulses führen. Auch aktuelle Studien wie das ~\cite{Navarro2022} zeigen, dass unterschiedliche Trainingsmodi bei Erwachsenen positive kardiale Anpassungen bewirken, darunter eine Verbesserung der Herzfrequenz im Ruhestand.
 
+In dieser Arbeit wird der Einfluss von Sport auf die Herzfrequenz untersucht, insbesondere ob regelmässige Aktivität zu einer Verbesserung des Ruhepulses führt. Die Daten stammen von einer weiblichen Probandin im Alter von 25–29 Jahren mit moderatem Fitnesslevel und decken den Zeitraum von 2021 bis Mitte 2025 ab. 
 
-\cite{Student2022}. 
-Siehe Kapitel~\ref{Kap1}.
 
 \section{Forschungsfragen und Methodik}
 \subsection{Forschungsfragen}
-Die Daten wurden mittels einer Polar Vantage V2 gesammelt, von 2021 bis und mit mitte 2025. Die Daten wurden direkt von der Polar Website angefordert und als Zip-Datei mit vielen JSON-Datein zugesendet. Die angeforderten Dateinen wurden mittels Phyton ausgelesen und bereinigt siehe ~\ref{Methodik} Methodik.
-Mittels den Daten wollten folgenden Fragen beantwortet werden:
-\begin{itemize}
-    \item Welche beobachtungen der Herzfrequenz über die Jahre wurde gemacht?
-    \item Wurde eine Veränderung des Ruhepulses, über die Nacht, beobachtet?
-    \item Kann einen Einfluss des Schlafes auf die Leistungsfähigkeit zurück geschlossen werden?
-    \item Kann mittels dem Ruhepuls auf die Trainingseinheit und die Erholung eine Schlussfolgerung gemacht werden?
-\end{itemize}
+Die Daten der Probandin wurden mit einer Polar Vantage V2 von 2021 bis Mitte 2025 erhoben. Sie wurden direkt von der Polar-Website als ZIP-Datei mit zahlreichen JSON-Dateien bereitgestellt. Anschliessend wurden die relevanten Daten mithilfe von Python ausgelesen, bereinigt und für die Analyse aufbereitet (siehe Kapitel~\ref{Methodik}).  
 
-
-%beispiel Kommentar
-\todo[backgroundcolor=red]{Diana}
+Ziel der Arbeit ist es, die Entwicklung des Ruhepulses in Abhängigkeit von Trainingsaktivität zu untersuchen. Konkret soll analysiert werden, ob erhöhte Trainingsdauer und -häufigkeit mit einer Abnahme des Ruhepulses korrelieren, wie es in Studien von ~\cite{Reimers2018} und im ~\cite{Navarro2022} für Erwachsene beobachtet wurde.
 
 
 \subsection{Methodik} 
 \label{Methodik}
-Vor Datenextraktion wurde die Dateinamenstruktur der JSON-File analysiert, da sie die Informatioinen zur korrkten Aufteilung wie auch Zuordnung besitzen. Die Extraktion und Aufbereitung der Daten wurden zuerst gefiltert und danach wurde die Trennung wie auch die Klassifizierung vorgenommen, nach "Activity, Training und 247ohr". Die Daten wurden Zusammengefügt und überprüft, dabei wurden irrelevante Daten bereinigt. Extraktion von relevanten Daten, mit folgender Bereinung von Daten, oder auch umwandlung von verschachtelten Strukturen wurde erneut angewandt.
-Die Finalen gesäuberten Daten wurden als csv-Dateien gespeichert und für die anschliessende Analyse verwendet siehe Kapitel ~\ref{Resultate} Resultate.
+Vor der Datenextraktion wurde die Dateinamenstruktur der JSON-Dateien analysiert, da diese Informationen zur korrekten Aufteilung und Zuordnung enthielten. Anschliessend wurden die Daten gefiltert, nach den Kategorien Activity, Training und 247 Ohr getrennt, klassifiziert und zu einem konsolidierten Datensatz zusammengeführt. Irrelevante oder fehlerhafte Einträge wurden bereinigt, verschachtelte Strukturen entflochten und die finalen, gesäuberten Daten als CSV-Dateien gespeichert. Diese bildeten die Grundlage für die anschliessende Analyse (siehe Kapitel ~\ref{Resultate}).
+
+Die CSV-Dateien wurden anschliessend mittels Power Query in Excel importiert, nach Datum sortiert und in geeignete Formate konvertiert. Für die Trainingsdaten wurde ein monatlicher Durchschnitt berechnet, um Veränderungen in Trainingshäufigkeit, -dauer und -intensität zwischen 2021 und 2025 zu identifizieren. Diese Werte wurden mit den Ruhepulsdaten verglichen, um den möglichen Einfluss des Trainings auf den Ruhepuls zu analysieren.
+
+Da die Rohdaten keinen direkten Ruhepuls enthielten, wurde dieser approximiert. Dafür wurden Herzfrequenzwerte aus der nächtlichen Ruhephase (22:00–06:00 Uhr) extrahiert und gemittelt. Um Verzerrungen durch unregelmässige Messintervalle zu vermeiden, bereinigte ein Python-Skript die Daten, indem es Werte mit einem Abstand von weniger als fünf Minuten zusammenfasste und pro Intervall einen Mittelwert berechnete. Das Ergebnis wurde wiederum als Excel-Datei gespeichert.
+
+Für die Auswertung wurden in Excel Pivot-Tabellen und -Diagramme erstellt, welche die Zusammenhänge zwischen Trainingsaktivität und Ruhepuls visuell darstellen. Die entsprechenden Abbildungen befinden sich in Kapitel ~\ref{Resultate}.
+
 
 \section{Resultate}~\label{Resultate}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Siehe Tabelle~\ref{tab:lorem}
+Der durchschnittliche Ruhepuls zeigt über die Jahre nur geringe Schwankungen und lag stets um 57 bpm. Im Jahr 2025 wurde mit 57.6 bpm der tiefste Wert erreicht, was auf eine stabile Grundfitness der Probandin hinweist. Die minimale Aktivitätspulsfrequenz blieb mit Werten zwischen 86.9 und 93.4 bpm ebenfalls relativ konstant, wobei 2023 den höchsten Wert verzeichnete. 
 
 \begin{table}[ht]
 \centering
-\begin{tabular}{l l}
-Lorem & ipsum \\\hline
-dolor sit amet & 66 \\
-consetetur sadipscing elitr & 99 \\
+\begin{tabular}{lcccc}
+Jahr & Ø Ruhepuls [bpm] & Ø min. Aktivitätspuls [bpm] & Aktivitätsdauer [h] & Akivitätshäufigkeit \\\hline
+2021 & 57.3 & 88.5 & 103.9 & 98 \\
+2022 & 57.9 & 90.3 & 201.4 & 160 \\
+2023 & 57.9 & 93.4 & 172.4 & 153 \\
+2024 & 57.8 & 89.7 & 116.5 & 100 \\
+2025 & 57.6 & 86.9 & 135.9 & 93 \\
 \end{tabular}
-\caption{Lorem ipsum}
-\label{tab:lorem}
+\caption{Übersicht der durchschnittlichen Pulswerte und Aktivitätsdaten}
+\label{tab:übersicht}
 \end{table}
 
-In Abbildung ~\ref{fig:av. heart per year} wurde die Durchschnittliche Herzfrequneze über die Jahre dargestellt, dabei ist ab 2021 eine Verbesserung der Herzfrequnez ersichtlich, da sie von 100 bpm auf 90 bpm sinkt. 2020 wurde vernachlässigt, da die Probanin die Uhr neu hatte und nicht regelässig trug.
+Die Aktivitätsdauer und -häufigkeit variieren von Jahr zu Jahr stark, zeigen aber ein ähnliches Muster: In Jahren mit mehr Trainingseinheiten wurde auch eine höhere Gesamtdauer erreicht (vgl. Tabelle \ref{tab:übersicht}). Abbildung \ref{fig:1} verdeutlicht, dass 2022 und 2023 die aktivsten Jahre waren, während danach ein leichter Rückgang folgte. Siehe Tabelle ~\ref{tab:übersicht}.
 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{Average heartfrequence per year.png}
-    \caption{Durchschnittliche Herzfrequenz/Jahr}
-    \label{fig:av. heart per year}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Entwicklung der Aktivitätshäufigkeit und Gesamtaktivitätszeit (2021–2025.png}
+	\caption{Entwicklung der Aktivitätshäufigkeit und Gesamtaktivitätszeit (2021–2025}
+	\label{fig:1}
 \end{figure}
 
-Durch die Durchschnittliche Herzfrequnez gemessen über einen Tag, konnte klar festgestellt werden, dass über die Nacht Erholung eintrat, da der Plus von ca. 90-100 bpm auf 75-90 bpm sinkt, siehe Abbildung ~\ref{fig:daily heartfrequence}.
+Abbildung \ref{fig:2} zeigt zudem, dass in Phasen erhöhter Aktivität der Ruhepuls jeweils leicht abnahm – beispielsweise im Jahr 2023. Dies deutet darauf hin, dass regelmässige körperliche Aktivität einen positiven Einfluss auf die Herzfrequenz im Ruhezustand hat.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{Dailymuster of hertfrequence.png}
-    \caption{Tagesmuster der Herzfrequnez}
-    \label{fig:daily heartfrequence}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Zusammenhang zwischen Trainingsaktivität und Ruhepuls.png}
+	\caption{Zusammenhang zwischen Trainingsaktivität und Ruhepuls (2021–2025)
+	}
+	\label{fig:2}
 \end{figure}
+
+In der Gesamtbetrachtung (Abbildung \ref{fig:gesamtvergleich}) ist ein klarer, negativer Zusammenhang zwischen Trainingsumfang und Ruhepuls erkennbar. Bei höherer Aktivität sinkt der Ruhepuls, während er bei geringerer Aktivität ansteigt. Dieses Muster zeigt sich konsistent über den gesamten Untersuchungszeitraum.
+
+
+\begin{landscape}
+\begin{figure}[ht]
+
+		\centering
+		\begin{subfigure}[b]{0.65\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{Vergleich 2021.jpeg}
+			\caption{Vergleich der Trainingsaktivität und des Ruhepulses in dem Jahr 2021}
+			\label{fig:bild1}
+		\end{subfigure}
+		\hspace{0.2\textwidth}
+		\begin{subfigure}[b]{0.65\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{Vergleich 2022.jpeg}
+			\caption{Vergleich der Trainingsaktivität und des Ruhepulses in dem Jahr 2022}
+			\label{fig:bild2}
+		\end{subfigure}
+		
+		%\vskip\baselineskip
+		\vspace{0.5em}  % oder \vskip\baselineskip
+		
+		
+		\begin{subfigure}[b]{0.65\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{Vergleich 2023.jpeg}
+			\caption{Vergleich der Trainingsaktivität und des Ruhepulses in dem Jahr 2023}
+			\label{fig:bild3}
+		\end{subfigure}
+		\hspace{0.2\textwidth}
+		\begin{subfigure}[b]{0.65\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{Vergleich 2024.jpeg}
+			\caption{Vergleich der Trainingsaktivität und des Ruhepulses in dem Jahr 2024}
+			\label{fig:bild4}
+		\end{subfigure}
+	
+	\caption{Vergleich der Trainingsaktivität und des Ruhepulses in den Jahren 2021–2024}
+	\label{fig:gesamtvergleich}
+ 
+\end{figure}
+\end{landscape}
 
 %  \caption{Lorem ipsum}
 %  \label{fig:ipsum}
@@ -104,11 +148,27 @@ Durch die Durchschnittliche Herzfrequnez gemessen über einen Tag, konnte klar f
 %Lorem ipsum dolor sit amet figure \ref{fig:ipsum}.
 
 \section{Diskussion}
-Die Herzfrequenz sank von Jahr zu Jahr in dem weiterhin Sport getätigt wurde. Ebenfalls wurde über die Nacht die Erholung gemessen und Tagsüber höhere varieriende Herzfrequnezen gemessen, welches auf Stress oder Sport hindeuten. 
+Die Analyse der Pulswerte und Trainingsdaten von 2021 bis 2025 zeigt, dass regelmässige sportliche Aktivität tendenziell zu einem niedrigeren Ruhepuls führt. Monate mit höherer Trainingshäufigkeit und längerer Aktivitätsdauer korrelieren mit leicht gesunkenen Ruhepulsen, während Phasen geringerer Aktivität einen Anstieg zeigen. Dies unterstützt die Annahme, dass Ausdauertraining das Herz und die Lunge stärkt und dadurch der Ruhepuls sinkt – ein Befund, der auch in der Meta-Analyse von ~\cite{Reimers2018} sowie im ~\cite{Navarro2022} dokumentiert wurde.
+
+
+Der durchschnittliche Ruhepuls blieb über die Jahre stabil, mit nur leichten Schwankungen. Die Aktivitätsdauer und -häufigkeit variierten stärker, was auf unterschiedliche Trainingsintensitäten oder persönliche Lebensumstände zurückzuführen sein könnte.
+
+Zu beachten ist, dass die Analyse nur eine Probandin umfasst, wodurch die Ergebnisse nicht verallgemeinerbar sind. Zudem können externe Faktoren wie Schlaf, Stress oder Ernährung die Herzfrequenz beeinflussen und wurden hier nicht systematisch erfasst.
+
+Insgesamt deuten die Daten darauf hin, dass regelmässige körperliche Aktivität einen positiven Effekt auf den Ruhepuls hat. Für zukünftige Studien wäre es sinnvoll, weitere Personen und zusätzliche Einflussgrössen zu berücksichtigen, um die Ergebnisse zu validieren und breiter anwendbar zu machen.
+
+
+
 
 %-------------------------
 % literature
 %-------------------------
 \bibliography{library}
+
+\appendix
+\section{Rohdaten}
+Die Rohdaten der Probandin können unter folgendem Link abgerufen werden:
+
+\href{https://github.com/Fredeys/FHGR_DS_Sport_1}{Rohdaten (GitHub)}
 
 \end{document}
