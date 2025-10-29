@@ -14,7 +14,29 @@
 \usepackage{newtxtext} 
 \usepackage{newtxmath}
 \setkomafont{disposition}{\bfseries}
+\usepackage{lscape}
+\usepackage{pdflscape}  % für landscape-Seiten
+\usepackage{subcaption}  % für subfigures
+\usepackage{float}
+\usepackage{hyperref}
 
+
+
+%Für kommentare
+\usepackage[colorinlistoftodos]{todonotes}
+
+% Für Zahlen mit Einheiten
+\usepackage{siunitx}
+\sisetup{
+    locale = DE,
+    per-mode = symbol,
+    output-decimal-marker={.},
+    range-phrase=-,
+    range-units = single,
+    group-digits=true,
+    group-separator=\, ,
+    group-minimum-digits = 5,
+}
 %-------------------------
 % configuration
 % ------------------------
